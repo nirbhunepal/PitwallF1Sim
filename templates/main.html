@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pitwall Strategy Simulator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!--Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg" alt="F1 Logo">
+            <span>Pitwall</span>
+        </div>
+        <div class="nav-buttons">
+            <button onclick="showSection('home')">Home</button>
+            <button onclick="showSection('telemetry')">Telemetry</button>
+            <button onclick="showSection('strategy')">Race Strategy</button>
+        </div>
+    </nav>
+
+    <!--Home Section-->
+    <section id="home" class="page-section">
+        <h1>F1 Pitwall Strategy Simulator</h1>
+    </section>
+
+    <!--Telemetry Section-->
+    <section id="telemetry" class="page-section" style="display:none;">
+        <h2>Telemetry Analysis</h2>
+        <div class="input-panel">
+            <label>Driver</label>
+            <input id="telemetry-driver" type="text">
+
+            <label>Season:</label>
+            <input id="telemetry-year" type="text">
+
+            <label>Grand Prix:</label>
+            <input id="telemetry-race" type="text">
+
+            <button class="run-btn" onclick="loadTelemetry()">Load Telemetry</button>
+        </div>
+        <div id="telemetry-result"></div>
+    </section>
+
+    <!--RF Model-->
+    <section id="strategy" class="page-section" style="display:none;">
+        <h2>Strategy Simulator</h2>
+
+        <label>Season</label>
+        <input id="strat-year" type="text">
+
+        <label>Grand Prix</label>
+        <input id="strat-race" type="text">
+
+        <button class="run-btn" onclick="runStrategy()">Simulate Strategy</button>
+
+        <div id="strategy-output"></div>
+    </section>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+
+</body>
+</html>
+
